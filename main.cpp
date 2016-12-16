@@ -54,10 +54,9 @@ void InitSystems()
 int main()
 {
 	InitSystems();
-	check_gl_error();
+	
 
 	Graphics* graphics = Graphics::Get();
-	check_gl_error();
 	InputManager* input = InputManager::Get();
 	PhysicsEngine* physics = PhysicsEngine::Get();
 
@@ -65,7 +64,6 @@ int main()
 	int planeMesh = graphics->AddMesh(planeVertexData, planeNormalData, sizeof(planeVertexData) / sizeof(float) / 3);
 
 	graphics->UpdateVBOs();
-	check_gl_error();
 
 	glm::vec3 cubeColor(1.f, 0.f, 0.f);
 	glm::vec3 planeColor(0.f, 1.f, 0.f);
@@ -89,7 +87,6 @@ int main()
 		*it = physics->AddCube(glm::sphericalRand(5.f));
 		physics->GetRigidBodyByID(*it).AddForceAtBodyPoint(glm::sphericalRand(2.f), glm::sphericalRand(0.5f));
 	}
-	check_gl_error();
 
 	do
 	{

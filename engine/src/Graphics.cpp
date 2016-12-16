@@ -29,46 +29,32 @@ void Graphics::Init(int w, int h, std::string title)
 	programID = 0;
 
 	glfwMakeContextCurrent(window);
-	check_gl_error();
 
 	glewExperimental=true; // Needed in core profile 
 	if (glewInit() != GLEW_OK) {
 		fprintf(stderr, "Failed to initialize GLEW\n");
 		exit(EXIT_FAILURE);
 	}
-	check_gl_error();
 	
 	// Dark blue background
-	glClearColor(0.25f, 0.6f, 1.0f, 0.0f);
-	check_gl_error();
+	glClearColor(0.25f, 0.6f, 1.0f, 0.0f);	
 
 	// Enable depth test
-	glEnable(GL_DEPTH_TEST);
-	check_gl_error();
+	glEnable(GL_DEPTH_TEST);	
 	// Accept fragment if it closer to the camera than the former one
-	glDepthFunc(GL_LESS);
-	check_gl_error();
-	glEnable(GL_CULL_FACE);
-	check_gl_error();
+	glDepthFunc(GL_LESS);	
+	glEnable(GL_CULL_FACE);	
 	
-	glGenVertexArrays(1, &vertexArrayID);
-	check_gl_error();
-	glBindVertexArray(vertexArrayID);
-	check_gl_error();
+	glGenVertexArrays(1, &vertexArrayID);	
+	glBindVertexArray(vertexArrayID);	
 
 	//for debug point
-	glEnable( GL_POINT_SMOOTH );
-	check_gl_error();
-    glEnable( GL_BLEND );
-	check_gl_error();
-	glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );
-	check_gl_error();
+	//glEnable( GL_POINT_SMOOTH );	
+    //glEnable( GL_BLEND );	
+	//glBlendFunc( GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA );	
 	glPointSize(6.0f);
-	check_gl_error();
 
-	LoadShaders("basicVS.vertexshader", "debugPS.pixelshader", programID);
-	check_gl_error();
-	//LoadShaders("basicVS.vertexshader", "basicPS.pixelshader", programID);
+	LoadShaders("basicVS.vertexshader", "basicPS.pixelshader", programID);
 }
 
 void Graphics::Shutdown()
