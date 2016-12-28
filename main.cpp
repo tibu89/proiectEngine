@@ -55,6 +55,7 @@ int main()
 {
 	InitSystems();
 	
+	srand(time(0));
 
 	Graphics* graphics = Graphics::Get();
 	InputManager* input = InputManager::Get();

@@ -12,6 +12,7 @@ set(ALL_LIBS
 	${OPENGL_LIBRARY}
 	glfw
 	GLEW_1130
+	assimp
 )
 
 add_definitions(
@@ -60,8 +61,8 @@ add_library(AzureEngine
 	${PHYSICS_FILES}
 	${GRAPHICS_FILES}
 	${INPUT_MANAGER_FILES}
-	shaders\basicPS.pixelshader
-	shaders\basicVS.vertexshader
+	shaders/basicPS.pixelshader
+	shaders/basicVS.vertexshader
 )
 
 target_link_libraries(AzureEngine ${ALL_LIBS})
