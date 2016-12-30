@@ -51,16 +51,23 @@ set(INPUT_MANAGER_FILES
 	src/InputManager.cpp
 )
 
+set(ENTITY_MANAGER_FILES
+	inc/EntityManager.h
+	src/EntityManager.cpp
+)
+
 source_group("Camera" FILES ${CAMERA_FILES})
 source_group("Physics" FILES ${PHYSICS_FILES})
 source_group("Graphics" FILES ${GRAPHICS_FILES})
 source_group("InputManager" FILES ${INPUT_MANAGER_FILES})
+source_group("EntityManager" FILES %{ENTITY_MANAGER_FILES})
 
 add_library(AzureEngine
 	${CAMERA_FILES}
 	${PHYSICS_FILES}
 	${GRAPHICS_FILES}
 	${INPUT_MANAGER_FILES}
+	${ENTITY_MANAGER_FILES}
 	shaders/basicPS.pixelshader
 	shaders/basicVS.vertexshader
 )
